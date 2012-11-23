@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>  <property>
+    <name>hive.metastore.warehouse.dir</name>
+    <value>/tmp/warehouse</value>
+    <description>      Local or HDFS directory where Hive keeps table contents.    </description>
+  </property>
+  <property>
+    <name>hive.exec.mode.local.auto</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.mapred.local.mem</name>
+    <value>true</value>
+  </property>
+  <property>    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:derby:memory;databaseName=metastore_db;create=true</value>
+    <description>      The JDBC connection URL.    </description>
+  </property></configuration>

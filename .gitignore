@@ -1,0 +1,9 @@
+.classpath
+.DS_Store
+.project
+.settings
+derby.log
+memory/
+target/
+!target/hive-1.0-SNAPSHOT.jar
+testing/
