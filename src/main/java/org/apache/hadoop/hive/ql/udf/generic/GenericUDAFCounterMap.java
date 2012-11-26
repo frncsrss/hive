@@ -120,7 +120,7 @@ public class GenericUDAFCounterMap extends AbstractGenericUDAFResolver {
       if(myagg.container.containsKey(pKeyCopy)) {
         myagg.container.get(pKeyCopy).set(value.get() + myagg.container.get(pKeyCopy).get());
       } else {
-        myagg.container.put(pKeyCopy, value);          
+        myagg.container.put(pKeyCopy, new LongWritable(value.get()));          
       }
     }
 
@@ -167,7 +167,8 @@ public class GenericUDAFCounterMap extends AbstractGenericUDAFResolver {
       if (partial != null) {
         CounterMapAgg myagg = (CounterMapAgg) agg;
         @SuppressWarnings("unchecked")
-        Map<Object,LongWritable> partialResult = (Map<Object,LongWritable>) internalMergeOI.getMap(partial);
+        Map<Object,LongWritable> partialResult =
+            (Map<Object,LongWritable>) internalMergeOI.getMap(partial);
         for (Map.Entry<Object,LongWritable> entry: partialResult.entrySet()) {
           putIntoMap(entry.getKey(), entry.getValue(), myagg);
         }
